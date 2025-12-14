@@ -1,183 +1,130 @@
-const cards = document.querySelectorAll(".card");
-
-function handleScroll() {
-    cards.forEach((card, index) => {
-        if (index < cards.length - 1) {
-            const nextCard = cards[index + 1];
-            const rect = card.getBoundingClientRect();
-            const nextRect = nextCard.getBoundingClientRect();
-
-            // Check if the next card overlaps the current card
-            if (nextRect.top <= rect.bottom - 20) {
-                card.classList.add("blur"); // shrink + blur + gradient
-            } else {
-                card.classList.remove("blur"); // reset to original gradient
-            }
-        }
-    });
+// ============================================
+// NAVBAR SCROLL EFFECT
+// ============================================
+const navbar = document.getElementById('navbar');
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
 }
 
-window.addEventListener("scroll", handleScroll);
-handleScroll();
+// ============================================
+// HAMBURGER MENU
+// ============================================
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
 
-// 1️⃣ Navbar scroll effect
-const navbar = document.getElementById("navbar");
-window.addEventListener("scroll", () => {
-  navbar.classList.toggle("scrolled", window.scrollY > 60);
-});
+if (hamburger && menu) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    menu.classList.toggle('active');
+  });
+}
 
-// 2️⃣ Hamburger mobile toggle
-const hamburger = document.querySelector(".hamburger"); // your 4-line hamburger
-const menu = document.querySelector(".nav-links");      // nav links ul
-
-hamburger.addEventListener("click", () => {
-  menu.classList.toggle("active");   // show/hide menu
-  hamburger.classList.toggle("open"); // animate hamburger to X
-});
-
-
-
-// hero image animation 
-window.addEventListener('load', () => {
-  const heroImg = document.querySelector('.hero-img');
-
-  // Animate image falling after page load
-  requestAnimationFrame(() => {
+// ============================================
+// HERO IMAGE ANIMATION
+// ============================================
+const heroImg = document.querySelector('.hero-img');
+if (heroImg) {
+  window.addEventListener('load', () => {
     setTimeout(() => {
       heroImg.classList.add('show');
-    }, 300); // small delay for fall effect
+    }, 100);
   });
-});
+}
 
-
-
-//  SCROLL ANIMATION SCRIPT // 
-
-document.addEventListener("DOMContentLoaded", () => {
+// ============================================
+// CARD BLUR EFFECT - GUARANTEED WORKING
+// ============================================
+function updateCardBlur() {
+  const cards = document.querySelectorAll('.card');
   
-  // Elements to animate
-  const animatedElements = document.querySelectorAll("h1, h2, h3, p, img, li, button, .hero-btn, .cta-btn, nav");
+  if (cards.length === 0) return;
+  
+  cards.forEach((card, index) => {
+    // Don't blur the last card
+    if (index === cards.length - 1) {
+      card.classList.remove('blur');
+      return;
+    }
+    
+    const cardRect = card.getBoundingClientRect();
+    const nextCard = cards[index + 1];
+    
+    if (!nextCard) return;
+    
+    const nextCardRect = nextCard.getBoundingClientRect();
+    const threshold = 100; // Adjust this value if needed
+    
+    // If next card is overlapping current card
+    if (nextCardRect.top < cardRect.bottom - threshold) {
+      card.classList.add('blur');
+    } else {
+      card.classList.remove('blur');
+    }
+  });
+}
 
-  // Function to check if element is in viewport
-  function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) - 50
-      && rect.bottom >= 0
-    );
-  }
-
-  // Scroll event handler
-  function scrollAnimate() {
-    animatedElements.forEach(el => {
-      if (isInViewport(el)) {
-        el.classList.add("active");
-      }
-    });
-  }
-
-  // Trigger on load
-  scrollAnimate();
-
-  // Trigger on scroll
-  window.addEventListener("scroll", scrollAnimate);
+// Run card blur on multiple events
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(updateCardBlur, 10);
 });
 
-
-document.addEventListener("DOMContentLoaded", () => {
-  const animatedElements = document.querySelectorAll("h1, h2, h3, p, img, li, button, .hero-btn, .cta-btn, nav");
-
-  function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return rect.top <= (window.innerHeight || document.documentElement.clientHeight) - 50 &&
-           rect.bottom >= 0;
-  }
-
-  function scrollAnimate() {
-    animatedElements.forEach(el => {
-      if (isInViewport(el)) {
-        el.classList.add("active");
-      } else {
-        // Optional: remove active class when element leaves viewport
-        // el.classList.remove("active");
-      }
-    });
-  }
-
-  // Trigger on scroll
-  window.addEventListener("scroll", scrollAnimate);
-  // Trigger on load
-  scrollAnimate();
+window.addEventListener('load', () => {
+  setTimeout(updateCardBlur, 500);
 });
 
-
-// new js for animations 
-document.addEventListener("DOMContentLoaded", () => {
-  // Select all elements you want animated
-  const animatedElements = document.querySelectorAll("h1, h2, h3, p, img, li, button, .hero-btn, .cta-btn, nav");
-
-  // Function to check if element is in the viewport
-  function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return rect.top < window.innerHeight && rect.bottom > 0;
-  }
-
-  // Scroll event handler
-  function scrollAnimate() {
-    animatedElements.forEach(el => {
-      if (isInViewport(el)) {
-        el.classList.add("active");    // Enter viewport → animate
-      } else {
-        el.classList.remove("active"); // Leave viewport → reset
-      }
-    });
-  }
-
-  // Trigger animation on page load
-  scrollAnimate();
-
-  // Trigger animation on scroll
-  window.addEventListener("scroll", scrollAnimate);
+window.addEventListener('resize', () => {
+  setTimeout(updateCardBlur, 100);
 });
 
-// about img animation
- 
-  const aboutImage = document.querySelector(".image-container");
+// Initial check
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(updateCardBlur, 500);
+});
 
-  const imgObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          aboutImage.classList.add("show-image");
-        } else {
-          aboutImage.classList.remove("show-image");
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
+// ============================================
+// ABOUT IMAGE SLIDE-IN ANIMATION
+// ============================================
+const imageContainer = document.querySelector('.image-container');
+if (imageContainer) {
+  const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show-image');
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  imageObserver.observe(imageContainer);
+}
 
-  imgObserver.observe(aboutImage);
+// ============================================
+// TIMELINE SCROLL ANIMATION
+// ============================================
+const timelineItems = document.querySelectorAll('.timeline-item');
+if (timelineItems.length > 0) {
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  timelineItems.forEach(item => {
+    timelineObserver.observe(item);
+  });
+}
 
-
-
-
-// scroll animation for timeline
-
-  const timelineItems = document.querySelectorAll(".timeline-item");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");   // animate when visible
-        } else {
-          entry.target.classList.remove("show"); // remove when leaving viewport
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  timelineItems.forEach((item) => observer.observe(item));
-
+// ============================================
+// DEBUG: Check if cards exist (remove after testing)
+// ============================================
+console.log('Cards found:', document.querySelectorAll('.card').length);
+console.log('Script loaded successfully');

@@ -72,6 +72,7 @@ button:hover,
 
 
 /* NAVBAR SECTION - START */
+
 nav {
   position: fixed;
   top: 0;
@@ -195,10 +196,23 @@ nav.scrolled {
 
   .hamburger {
     display: flex;  /* show hamburger on mobile */
+    width: 20px;   /* smaller width */
+    height: 16px;  /* smaller height */
+  }
+
+   .hamburger span {
+    height: 4px;   /* thinner lines */
+    width: 25px;
+  }
+
+  /* Shrink right icons if any (optional) */
+  .icon {
+    font-size: 20px;
   }
 
   .nav-right {
     gap: 10px;
+     display: none;
   }
 }
 /* NAVBAR SECTION - END */
@@ -236,6 +250,7 @@ nav.scrolled {
 .hero-img img {
   width: 300px;
   height: 300px;
+  max-width: 90vw;  /* ✅ Add this - prevents overflow on mobile */
   border-radius: 10%;
   margin-top: 25px;
   margin-bottom: 30px;
@@ -245,7 +260,8 @@ nav.scrolled {
 /* TYPEWRITER TEXT */
 .cursor {
   position: relative;
-  width: 24em;
+   width: 100%;  /* ✅ Makes it flexible */
+  max-width: 24em;  /* ✅ Keeps desktop size but allows shrinking */
   margin: 15px auto;
   border-right: 2px solid rgba(255, 255, 255, .75);
   font-size: 30px;
@@ -863,1348 +879,1124 @@ i {
 
 /* Footer css ends */
 
+/* ============================================
+   RESPONSIVE MEDIA QUERIES - FULLY FIXED VERSION
+   Add this code at the END of your CSS file
+   ============================================ */
 
-/*  SCROLL REVEAL ANIMATIONS (ADD-ON) */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.9s ease;
+/* Ensure all elements use border-box */
+* {
+  box-sizing: border-box !important;
 }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: all 0.9s ease;
-}
-
-.reveal-left.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: all 0.9s ease;
-}
-
-.reveal-right.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-zoom {
-  opacity: 0;
-  transform: scale(0.85);
-  transition: all 0.9s ease;
-}
-
-.reveal-zoom.active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-
-
-/* =========================================
-   FADE-IN ANIMATION
-========================================= */
-
-.fade-in {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.fade-in.active {
-  opacity: 1;
-}
-
-
-
-/* =========================================
-   SLIDE-UP SOFT
-========================================= */
-
-.slide-up {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: 0.8s ease;
-}
-
-.slide-up.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-
-/* =========================================
-   RESPONSIVE ENHANCEMENTS (ADD-ON)
-========================================= */
-
-@media (max-width: 1024px) {
-  nav {
-    padding: 14px 30px;
+/* 1600px and below */
+@media screen and (max-width: 1600px) {
+  .about-card {
+    max-width: 1100px !important;
+    padding: 40px !important;
   }
-
-  .nav-links {
-    display: none;
-  }
-
-  .menu-icon {
-    display: block;
-  }
-
-  .content-wrapper {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .image-container {
-    transform: translateX(0);
-    margin-top: 20px;
-  }
-
-  .timeline-item {
-    width: 100%;
-    margin-left: 0 !important;
-    text-align: left !important;
-    padding-left: 50px !important;
-  }
-
-  .timeline-section .containers::before {
-    left: 20px;
-  }
-
-  .timeline-item::before {
-    left: 13px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-img img {
-    width: 200px;
-    height: 200px;
-  }
-
-  .cursor {
-    width: 18em;
-    font-size: 24px;
-  }
-
-  .moving-text span {
-    font-size: 24px;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .footer-items ul {
-    grid-template-columns: 1fr;
-  }
-
-  .cards {
-    padding: 20px;
-  }
-
-  .card {
-    flex-direction: column;
-  }
-
-  .card img,
-  .content {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-text p {
-    font-size: 16px;
-  }
-
+  
   .main-heading {
-    font-size: 36px;
+    font-size: 45px !important;
   }
-
+  
   .about-description {
-    font-size: 16px;
+    font-size: 18px !important;
   }
+}
 
+/* 1400px and below */
+@media screen and (max-width: 1400px) {
+  nav {
+    padding: 18px 40px !important;
+  }
+  
+  nav.scrolled {
+    padding: 10px 40px !important;
+  }
+  
+  .about-card {
+    max-width: 1000px !important;
+    padding: 35px !important;
+  }
+  
+  .main-heading {
+    font-size: 42px !important;
+  }
+  
+  .image-container {
+    margin-left: 40px !important;
+  }
+  
+  .timeline-section .containers {
+    width: 95% !important;
+  }
+}
+
+/* 1200px and below */
+@media screen and (max-width: 1200px) {
+  nav {
+    padding: 18px 30px !important;
+  }
+  
+  nav.scrolled {
+    padding: 10px 30px !important;
+  }
+  
+  .logo {
+    font-size: 28px !important;
+  }
+  
+  .nav-links {
+    gap: 24px !important;
+    font-size: 14px !important;
+  }
+  
+  .hero-text p {
+    font-size: 16px !important;
+    max-width: 600px !important;
+  }
+  
+  .moving-text span {
+    font-size: 26px !important;
+    margin-right: 40px !important;
+  }
+  
+  /* Cards - Keep blur effect working */
+  .card {
+    padding: 18px !important;
+    gap: 18px !important;
+    top: 5px !important; /* Keep sticky working */
+  }
+  
+  .card img {
+    width: 40% !important;
+    padding: 40px 10px !important;
+  }
+  
+  .content {
+    width: 60% !important;
+    padding: 15px !important;
+  }
+  
+  .content h2 {
+    font-size: 24px !important;
+    margin-bottom: 12px !important;
+  }
+  
+  .content p {
+    font-size: 15px !important;
+    margin-bottom: 12px !important;
+    line-height: 1.5 !important;
+  }
+  
+  .about-card {
+    padding: 30px !important;
+  }
+  
+  .main-heading {
+    font-size: 38px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .about-description {
+    font-size: 17px !important;
+  }
+  
+  /* About image - controlled size */
+  .image-container {
+    margin-left: 30px !important;
+    max-width: 450px !important;
+  }
+  
+  .image-container img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  .timeline-item {
+    padding: 30px 0 !important;
+  }
+  
+  .timeline-item.right {
+    padding-left: 30px !important;
+  }
+  
+  .timeline-item.left-box {
+    padding-right: 30px !important;
+  }
+  
+  .timeline-item h3 {
+    font-size: 20px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .timeline-content p {
+    font-size: 15px !important;
+  }
+  
   .cta-box h1 {
-    font-size: 30px;
+    font-size: 38px !important;
+  }
+  
+  .cta-box p {
+    font-size: 16px !important;
+  }
+  
+  .footer-heading {
+    font-size: 2.4rem !important;
+  }
+  
+  .footer-content {
+    gap: 1.5rem !important;
   }
 }
 
-
-/*  GLOBAL ANIMATIONS FOR ELEMENTS */
-
-/* Default state for all animated elements */
-h1,
-h2,
-h3,
-p,
-img,
-button,
-li,
-.hero-btn,
-.cta-btn,
-nav {
-  opacity: 0;
-  transform: translateY(20px) scale(0.95);
-  transition: all 0.8s ease;
-}
-
-/* When active (element in viewport) */
-h1.active,
-h2.active,
-h3.active,
-p.active,
-img.active,
-li.active,
-button.active,
-.hero-btn.active,
-.cta-btn.active,
-nav.active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Extra hover effect for images and buttons */
-img:hover {
-  transform: scale(1.05);
-}
-
-button:hover,
-.hero-btn:hover,
-.cta-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* ===============================
-   KEYFRAMES
-=============================== */
-
-/* Headings + paragraphs */
-@keyframes fadeSlideScale {
-  0% {
-    opacity: 0;
-    transform: translateY(20px) scale(0.9);
+/* 998px and below - TABLET */
+@media screen and (max-width: 998px) {
+  nav {
+    padding: 15px 20px !important;
   }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+  
+  nav.scrolled {
+    padding: 10px 20px !important;
+  }
+  
+  .logo {
+    font-size: 26px !important;
+  }
+  
+  .nav-links {
+    gap: 20px !important;
+    font-size: 14px !important;
+  }
+  
+  .nav-right {
+    gap: 12px !important;
+  }
+  
+  .hero-text p {
+    font-size: 15px !important;
+    max-width: 550px !important;
+    padding: 0 15px !important;
+  }
+  
+  button,
+  .hero-btn,
+  .cta-btn {
+    padding: 10px 18px !important;
+    font-size: 14px !important;
+  }
+  
+  .moving-text span {
+    font-size: 24px !important;
+    margin-right: 35px !important;
+  }
+  
+  .cards {
+    padding: 30px 20px 20px 20px !important;
+  }
+  
+  /* Cards - Stack but keep readable height */
+  .card {
+    flex-direction: column !important;
+    padding: 20px !important;
+    margin-bottom: 30px !important;
+    top: 5px !important; /* Keep sticky */
+    min-height: auto !important;
+    height: auto !important;
+  }
+  
+  .card img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    padding: 20px 10px !important;
+  }
+  
+  .content {
+    width: 100% !important;
+    padding: 15px !important;
+  }
+  
+  .content h2 {
+    font-size: 22px !important;
+  }
+  
+  .content p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .about-card {
+    padding: 30px 20px !important;
+    margin: 30px 10px !important;
+  }
+  
+  .content-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  
+  .text-content {
+    padding-right: 0 !important;
+  }
+  
+  .main-heading {
+    font-size: 34px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .about-description {
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+  }
+  
+  /* About image - max 350px on tablet */
+  .image-container {
+    margin-left: 0 !important;
+    max-width: 350px !important;
+    margin: 0 auto !important;
+  }
+  
+  .image-container img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  .contact-button {
+    padding: 14px 30px !important;
+    font-size: 14px !important;
+  }
+  
+  .timeline-section {
+    padding: 30px 20px !important;
+  }
+  
+  .timeline-section .containers {
+    width: 100% !important;
+    margin-top: 2rem !important;
+  }
+  
+  .timeline-section .containers::before {
+    left: 30px !important;
+  }
+  
+  .timeline-item {
+    width: 100% !important;
+    padding: 20px 0 20px 70px !important; /* More padding to avoid overlap */
+  }
+  
+  .timeline-item.right {
+    margin-left: 0 !important;
+    padding-left: 70px !important;
+    padding-right: 0 !important;
+  }
+  
+  .timeline-item.left-box {
+    padding-right: 0 !important;
+    padding-left: 70px !important;
+    text-align: left !important;
+  }
+  
+  /* Timeline dots - positioned to not overlap numbers */
+  .timeline-item::before {
+    left: 23px !important;
+    top: 25px !important;
+    right: auto !important;
+  }
+  
+  .timeline-item.left-box::before {
+    left: 23px !important;
+    right: auto !important;
+  }
+  
+  /* Timeline images with numbers - more left spacing */
+  .timeline-img {
+    left: -5px !important;
+    right: auto !important;
+    top: 10px !important;
+  }
+  
+  .timeline-item.right .timeline-img.left-img {
+    left: -5px !important;
+    right: auto !important;
+  }
+  
+  .timeline-item.left-box .timeline-img.right-img {
+    left: -5px !important;
+    right: auto !important;
+  }
+  
+  .timeline-content {
+    padding: 18px !important;
+  }
+  
+  .timeline-item h3 {
+    font-size: 19px !important;
+  }
+  
+  .timeline-content p {
+    font-size: 14px !important;
+  }
+  
+  .moving-text1 span {
+    font-size: 34px !important;
+    margin-right: 80px !important;
+  }
+  
+  .cta {
+    height: auto !important;
+    min-height: 35vh !important;
+    padding: 40px 20px !important;
+  }
+  
+  .cta-box {
+    max-width: 90% !important;
+  }
+  
+  .cta-box h1 {
+    font-size: 32px !important;
+    margin-bottom: 12px !important;
+  }
+  
+  .cta-box p {
+    font-size: 15px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .footer-container {
+    padding: 1.5rem !important;
+  }
+  
+  .footer-heading {
+    font-size: 2rem !important;
+  }
+  
+  .footer-sub-heading {
+    font-size: 16px !important;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    padding-inline: 1rem !important;
+    margin-top: 2rem !important;
+    gap: 2rem !important;
+  }
+  
+  .footer-items ul {
+    margin-left: 0 !important;
+    text-align: center !important;
+  }
+  
+  .footer-contact {
+    text-align: center !important;
+  }
+  
+  .footer-contact p {
+    font-size: 16px !important;
+  }
+  
+  .footer-newsletter {
+    text-align: center !important;
+  }
+  
+  .bottom-container {
+    flex-direction: column !important;
+    text-align: center !important;
   }
 }
 
-@keyframes fadeSlide {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
+/* 768px and below - MOBILE */
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 12px 15px !important;
   }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .logo {
+    font-size: 24px !important;
+  }
+  
+  .hero-text p {
+    font-size: 14px !important;
+    max-width: 100% !important;
+    padding: 0 10px !important;
+  }
+  
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  /* Buttons - Better width on mobile */
+  button,
+  .hero-btn,
+  .cta-btn {
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    width: auto !important;
+    min-width: 200px !important;
+    max-width: 300px !important;
+    display: inline-block !important;
+    margin: 0 auto !important;
+  }
+  
+  .moving-text-container {
+    padding: 10px 0 !important;
+  }
+  
+  .moving-text span {
+    font-size: 20px !important;
+    margin-right: 30px !important;
+  }
+  
+  .cards {
+    padding: 25px 15px 15px 15px !important;
+  }
+  
+  /* Cards - compact and readable */
+  .card {
+    padding: 15px !important;
+    margin-bottom: 25px !important;
+    top: 3px !important;
+    min-height: auto !important;
+  }
+  
+  .card img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    padding: 15px 5px !important;
+  }
+  
+  .content {
+    padding: 10px !important;
+  }
+  
+  .content h2 {
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .content p {
+    font-size: 13px !important;
+    margin-bottom: 8px !important;
+    line-height: 1.5 !important;
+  }
+  
+  .content button {
+    margin-top: 10px !important;
+  }
+  
+  .about-card {
+    padding: 25px 15px !important;
+    margin: 20px 10px !important;
+  }
+  
+  .main-heading {
+    font-size: 28px !important;
+    margin-bottom: 18px !important;
+  }
+  
+  .about-description {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 15px !important;
+  }
+  
+  /* About image - max 280px on mobile */
+  .image-container {
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+  
+  .image-container img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  .contact-button {
+    padding: 12px 24px !important;
+    font-size: 13px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .timeline-section {
+    padding: 25px 15px !important;
+  }
+  
+  .timeline-section .containers::before {
+    left: 35px !important;
+  }
+  
+  /* Timeline - EXTRA left padding to completely avoid overlap */
+  .timeline-item {
+    padding: 18px 0 18px 95px !important;
+  }
+  
+  .timeline-item.right,
+  .timeline-item.left-box {
+    padding-left: 95px !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Timeline dots positioned properly - far from numbers */
+  .timeline-item::before {
+    left: 29px !important;
+    width: 12px !important;
+    height: 12px !important;
+    top: 30px !important;
+  }
+  
+  .timeline-item.left-box::before {
+    left: 29px !important;
+  }
+  
+  /* Timeline images - positioned FAR LEFT away from dots */
+  .timeline-img {
+    width: 50px !important;
+    height: 50px !important;
+    border-width: 4px !important;
+    font-size: 14px !important;
+    left: -12px !important;
+    top: 10px !important;
+  }
+  
+  .timeline-item.right .timeline-img.left-img,
+  .timeline-item.left-box .timeline-img.right-img {
+    left: -12px !important;
+  }
+  
+  .timeline-content {
+    padding: 15px !important;
+  }
+  
+  .timeline-item h3 {
+    font-size: 18px !important;
+    margin-bottom: 12px !important;
+  }
+  
+  .timeline-content p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+  
+  .moving-text-container1 {
+    padding: 10px 0 !important;
+  }
+  
+  .moving-text1 span {
+    font-size: 28px !important;
+    margin-right: 60px !important;
+  }
+  
+  .cta {
+    padding: 30px 15px !important;
+  }
+  
+  .cta-box {
+    max-width: 95% !important;
+  }
+  
+  .cta-box h1 {
+    font-size: 26px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .cta-box p {
+    font-size: 14px !important;
+    margin-bottom: 25px !important;
+  }
+  
+  .footer-heading {
+    font-size: 1.8rem !important;
+  }
+  
+  .footer-sub-heading {
+    font-size: 14px !important;
+  }
+  
+  .footer-content {
+    padding-inline: 0.5rem !important;
+    gap: 1.5rem !important;
+  }
+  
+  .footer-items ul li a {
+    font-size: 16px !important;
+  }
+  
+  .footer-icons i {
+    font-size: 22px !important;
+  }
+  
+  .footer-contact p {
+    font-size: 14px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .footer-contact p span,
+  .footer-contact i {
+    font-size: 13px !important;
+  }
+  
+  .footer-newsletter h3 {
+    font-size: 18px !important;
+  }
+  
+  .footer-newsletter p {
+    font-size: 13px !important;
+  }
+  
+  .newsletter-form {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  
+  .newsletter-form .form-input {
+    width: 100% !important;
+  }
+  
+  .newsletter-form button {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .bottom-footer {
+    font-size: 12px !important;
   }
 }
 
-/* Images */
-@keyframes fadeZoom {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
+/* 576px and below - SMALL MOBILE */
+@media screen and (max-width: 576px) {
+  .logo {
+    font-size: 22px !important;
   }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
+  
+  .hero-text p {
+    font-size: 13px !important;
+  }
+  
+  .moving-text span {
+    font-size: 18px !important;
+    margin-right: 25px !important;
+  }
+  
+  .card {
+    padding: 12px !important;
+  }
+  
+  .card img {
+    height: 180px !important;
+  }
+  
+  .content h2 {
+    font-size: 18px !important;
+  }
+  
+  .content p {
+    font-size: 12px !important;
+  }
+  
+  .main-heading {
+    font-size: 24px !important;
+  }
+  
+  .about-description {
+    font-size: 13px !important;
+  }
+  
+  /* About image - max 240px on small mobile */
+  .image-container {
+    max-width: 240px !important;
+  }
+  
+  .timeline-item {
+    padding: 15px 0 15px 80px !important;
+  }
+  
+  .timeline-item.right,
+  .timeline-item.left-box {
+    padding-left: 80px !important;
+  }
+  
+  .timeline-section .containers::before {
+    left: 28px !important;
+  }
+  
+  .timeline-item::before {
+    left: 23px !important;
+    width: 10px !important;
+    height: 10px !important;
+  }
+  
+  .timeline-item.left-box::before {
+    left: 23px !important;
+  }
+  
+  .timeline-img {
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 12px !important;
+    border-width: 3px !important;
+    left: -8px !important;
+  }
+  
+  .timeline-item h3 {
+    font-size: 16px !important;
+  }
+  
+  .timeline-content p {
+    font-size: 12px !important;
+  }
+  
+  .moving-text1 span {
+    font-size: 24px !important;
+    margin-right: 50px !important;
+  }
+  
+  .cta-box h1 {
+    font-size: 22px !important;
+  }
+  
+  .cta-box p {
+    font-size: 13px !important;
+  }
+  
+  .footer-heading {
+    font-size: 1.5rem !important;
+  }
+  
+  .footer-items ul li a {
+    font-size: 14px !important;
+  }
+  
+  .footer-icons i {
+    font-size: 20px !important;
   }
 }
 
-/* Buttons bounce */
-@keyframes buttonBounce {
-  0% {
-    transform: scale(1);
+/* 400px and below - VERY SMALL MOBILE */
+@media screen and (max-width: 400px) {
+  .logo {
+    font-size: 20px !important;
   }
-
-  50% {
-    transform: scale(1.1);
+  
+  .hero-text p {
+    font-size: 12px !important;
   }
-
-  100% {
-    transform: scale(1);
+  
+  button,
+  .hero-btn,
+  .cta-btn {
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    min-width: 180px !important;
+    max-width: 280px !important;
+  }
+  
+  .moving-text span {
+    font-size: 16px !important;
+    margin-right: 20px !important;
+  }
+  
+  .cards {
+    padding: 20px 10px 10px 10px !important;
+  }
+  
+  .card {
+    padding: 10px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .card img {
+    height: 160px !important;
+  }
+  
+  .content h2 {
+    font-size: 17px !important;
+  }
+  
+  .content p {
+    font-size: 11px !important;
+  }
+  
+  .about-card {
+    padding: 20px 12px !important;
+  }
+  
+  .main-heading {
+    font-size: 22px !important;
+  }
+  
+  .about-description {
+    font-size: 12px !important;
+  }
+  
+  /* About image - max 200px on very small mobile */
+  .image-container {
+    max-width: 200px !important;
+  }
+  
+  .contact-button {
+    padding: 10px 20px !important;
+    font-size: 12px !important;
+  }
+  
+  .timeline-item {
+    padding: 12px 0 12px 85px !important;
+  }
+  
+  .timeline-item.right,
+  .timeline-item.left-box {
+    padding-left: 85px !important;
+  }
+  
+  .timeline-section .containers::before {
+    left: 30px !important;
+  }
+  
+  .timeline-item::before {
+    left: 25px !important;
+  }
+  
+  .timeline-item.left-box::before {
+    left: 25px !important;
+  }
+  
+  .timeline-img {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 11px !important;
+    left: -10px !important;
+  }
+  
+  .timeline-content {
+    padding: 12px !important;
+  }
+  
+  .timeline-item h3 {
+    font-size: 15px !important;
+  }
+  
+  .timeline-content p {
+    font-size: 11px !important;
+  }
+  
+  .moving-text1 span {
+    font-size: 20px !important;
+    margin-right: 40px !important;
+  }
+  
+  .cta-box h1 {
+    font-size: 20px !important;
+  }
+  
+  .cta-box p {
+    font-size: 12px !important;
+  }
+  
+  .footer-heading {
+    font-size: 1.3rem !important;
+  }
+  
+  .footer-sub-heading {
+    font-size: 12px !important;
+  }
+  
+  .footer-items ul li a {
+    font-size: 13px !important;
+  }
+  
+  .footer-newsletter h3 {
+    font-size: 16px !important;
+  }
+  
+  .footer-newsletter p {
+    font-size: 12px !important;
   }
 }
 
-/* Navbar slide down */
-@keyframes navSlideDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
+/* 300px - MINIMUM WIDTH */
+@media screen and (max-width: 300px) {
+  nav {
+    padding: 10px 8px !important;
   }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .logo {
+    font-size: 18px !important;
+  }
+  
+  .hero-text p {
+    font-size: 11px !important;
+  }
+  
+  button,
+  .hero-btn,
+  .cta-btn {
+    padding: 9px 14px !important;
+    font-size: 12px !important;
+  }
+  
+  .moving-text span {
+    font-size: 14px !important;
+  }
+  
+  .card img {
+    height: 140px !important;
+  }
+  
+  .content h2 {
+    font-size: 15px !important;
+  }
+  
+  .content p {
+    font-size: 10px !important;
+  }
+  
+  .main-heading {
+    font-size: 20px !important;
+  }
+  
+  .about-description {
+    font-size: 11px !important;
+  }
+  
+  /* About image - max 180px at minimum */
+  .image-container {
+    max-width: 180px !important;
+  }
+  
+  .timeline-item h3 {
+    font-size: 14px !important;
+  }
+  
+  .timeline-content p {
+    font-size: 10px !important;
+  }
+  
+  .cta-box h1 {
+    font-size: 18px !important;
+  }
+  
+  .cta-box p {
+    font-size: 11px !important;
   }
 }
 
-
-/* ==========================================
-   RESPONSIVE CSS FOR HOME PAGE
-   Include AFTER main CSS
-   ========================================== */
-
-/* ==========================================
-   LARGE SCREENS (1400px+)
-   ========================================== */
-@media (min-width: 1400px) {
-    nav {
-        padding: 18px 100px;
-    }
-    
-    .about-card {
-        max-width: 1400px;
-    }
-    
-    .timeline-section .containers {
-        max-width: 1200px;
-    }
+/* Fix for overflow issues */
+body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
 }
 
-/* ==========================================
-   DESKTOP (1200px - 1399px)
-   ========================================== */
-@media (max-width: 1199px) {
-    nav {
-        padding: 18px 40px;
-    }
-    
-    .nav-links {
-        gap: 24px;
-    }
-    
-    .logo {
-        font-size: 30px;
-    }
-    
-    .hero-img img {
-        width: 280px;
-        height: 280px;
-    }
-    
-    .cursor {
-        width: 22em;
-        font-size: 28px;
-    }
-    
-    .about-card {
-        padding: 40px;
-    }
-    
-    .main-heading {
-        font-size: 45px;
-    }
-    
-    .about-description {
-        font-size: 18px;
-    }
-    
-    .timeline-section .containers {
-        width: 95%;
-    }
+.hero-container,
+.cards,
+.about-section,
+.timeline-section,
+.cta,
+.footer-container {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
 }
 
-/* ==========================================
-   TABLET LANDSCAPE (992px - 1199px)
-   ========================================== */
-@media (max-width: 991px) {
-    nav {
-        padding: 15px 30px;
-    }
-    
-    .nav-links {
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(12px);
-        flex-direction: column;
-        gap: 0;
-        padding: 20px;
-        border-radius: 12px;
-        display: none;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        min-width: 200px;
-    }
-    
-    .nav-links.active {
-        display: flex;
-    }
-    
-    .nav-links li {
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    }
-    
-    .nav-links li:last-child {
-        border-bottom: none;
-    }
-    
-    .nav-links li a {
-        display: block;
-        padding: 8px 0;
-    }
-    
-    .hamburger {
-        display: flex;
-    }
-    
-    .hero-container {
-        height: auto;
-        min-height: 90vh;
-        padding-top: 80px;
-        padding-bottom: 40px;
-    }
-    
-    .hero-img img {
-        width: 250px;
-        height: 250px;
-    }
-    
-    .cursor {
-        width: 20em;
-        font-size: 26px;
-    }
-    
-    .hero-text p {
-        font-size: 17px;
-        max-width: 600px;
-        padding: 0 20px;
-    }
-    
-    .moving-text span {
-        font-size: 26px;
-    }
-    
-    .card {
-        flex-direction: column;
-        gap: 0;
-    }
-    
-    .card img {
-        width: 100%;
-        padding: 30px 10px;
-    }
-    
-    .content {
-        width: 100%;
-        padding: 20px;
-    }
-    
-    .content-wrapper {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .text-content {
-        padding-right: 0;
-        text-align: center;
-    }
-    
-    .image-container {
-        margin-left: 0;
-        margin-top: 30px;
-    }
-    
-    .main-heading {
-        font-size: 40px;
-    }
-    
-    .about-description {
-        font-size: 17px;
-    }
-    
-    .timeline-item {
-        width: 100% !important;
-        margin-left: 0 !important;
-        padding-left: 60px !important;
-        padding-right: 20px !important;
-        text-align: left !important;
-    }
-    
-    .timeline-section .containers::before {
-        left: 20px;
-    }
-    
-    .timeline-item::before {
-        left: 13px !important;
-        right: auto !important;
-    }
-    
-    .timeline-item .timeline-img {
-        left: -80px !important;
-        right: auto !important;
-    }
-    
-    .timeline-item.left-box .timeline-img.right-img {
-        left: -80px;
-        right: auto;
-    }
-    
-    .moving-text1 span {
-        font-size: 35px;
-        margin-right: 80px;
-    }
-    
-    .cta {
-        height: auto;
-        min-height: 35vh;
-        padding: 40px 20px;
-    }
-    
-    .cta-box h1 {
-        font-size: 38px;
-    }
-    
-    .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-    
-    .footer-newsletter {
-        grid-column: 1 / -1;
-    }
+/* Ensure moving text doesn't cause horizontal scroll */
+.moving-text-container,
+.moving-text-container1 {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  width: 100% !important;
 }
 
-/* ==========================================
-   TABLET PORTRAIT (768px - 991px)
-   ========================================== */
-@media (max-width: 767px) {
-    nav {
-        padding: 12px 20px;
-    }
-    
-    nav.scrolled {
-        padding: 10px 20px;
-    }
-    
-    .logo {
-        font-size: 26px;
-    }
-    
-    .nav-right {
-        gap: 12px;
-    }
-    
-    .icon {
-        font-size: 22px;
-    }
-    
-    button,
-    .hero-btn,
-    .cta-btn {
-        padding: 10px 18px;
-        font-size: 14px;
-    }
-    
-    .hero-container {
-        height: auto;
-        min-height: 80vh;
-        padding-top: 70px;
-        padding-bottom: 30px;
-    }
-    
-    .hero-img img {
-        width: 220px;
-        height: 220px;
-        margin-top: 20px;
-        margin-bottom: 25px;
-    }
-    
-    .cursor {
-        width: 18em;
-        font-size: 22px;
-        margin: 10px auto;
-    }
-    
-    .hero-text p {
-        font-size: 16px;
-        max-width: 90%;
-        margin: 0 auto 20px;
-        line-height: 1.5;
-    }
-    
-    .moving-text-container {
-        padding: 10px 0;
-        margin: 15px auto 0;
-    }
-    
-    .moving-text span {
-        font-size: 22px;
-        margin-right: 40px;
-    }
-    
-    .cards {
-        padding: 30px 20px;
-    }
-    
-    .card {
-        margin-bottom: 30px;
-        padding: 15px;
-    }
-    
-    .card img {
-        padding: 20px 10px;
-    }
-    
-    .content {
-        padding: 15px;
-    }
-    
-    .content h2 {
-        font-size: 24px;
-        margin-bottom: 12px;
-    }
-    
-    .content p {
-        font-size: 15px;
-        margin-bottom: 12px;
-    }
-    
-    .about-section {
-        padding: 20px 0;
-    }
-    
-    .about-card {
-        padding: 30px 20px;
-        margin: 30px 10px;
-    }
-    
-    .main-heading {
-        font-size: 36px;
-        margin-bottom: 20px;
-    }
-    
-    .about-description {
-        font-size: 16px;
-        line-height: 1.7;
-        margin-bottom: 15px;
-    }
-    
-    .contact-button {
-        padding: 14px 32px;
-        font-size: 15px;
-    }
-    
-    .timeline-section {
-        padding: 30px 20px;
-    }
-    
-    .timeline-section .containers {
-        width: 100%;
-        margin-top: 2rem;
-    }
-    
-    .timeline-item {
-        padding-left: 50px !important;
-        padding: 30px 15px 30px 50px !important;
-    }
-    
-    .timeline-section .containers::before {
-        left: 15px;
-    }
-    
-    .timeline-item::before {
-        left: 8px !important;
-        top: 35px;
-        width: 12px;
-        height: 12px;
-    }
-    
-    .timeline-content {
-        padding: 18px;
-    }
-    
-    .timeline-item h3 {
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-    
-    .timeline-content p {
-        font-size: 15px;
-        margin-bottom: 10px;
-    }
-    
-    .timeline-item .timeline-img {
-        left: -65px !important;
-        width: 50px;
-        height: 50px;
-        top: 20px;
-    }
-    
-    .moving-text-container1 {
-        padding: 10px 0;
-        margin: 15px auto 0;
-    }
-    
-    .moving-text1 span {
-        font-size: 28px;
-        margin-right: 60px;
-    }
-    
-    .cta {
-        min-height: 30vh;
-        padding: 30px 15px;
-    }
-    
-    .cta-box {
-        max-width: 90%;
-    }
-    
-    .cta-box h1 {
-        font-size: 32px;
-        margin-bottom: 12px;
-    }
-    
-    .cta-box p {
-        font-size: 16px;
-        margin-bottom: 30px;
-    }
-    
-    .footer-container {
-        padding: 1.5rem 1rem;
-    }
-    
-    .footer-heading {
-        font-size: 2.2rem;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        padding-inline: 1rem;
-        margin-top: 2rem;
-        gap: 2.5rem;
-    }
-    
-    .footer-items ul {
-        margin-left: 0;
-        text-align: center;
-    }
-    
-    .footer-newsletter {
-        grid-column: auto;
-    }
-    
-    .newsletter-form {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-    
-    .newsletter-form .form-input {
-        width: 100%;
-    }
-    
-    .newsletter-form button {
-        width: 100%;
-    }
-    
-    .bottom-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
+/* Force word wrapping on all text elements */
+h1, h2, h3, p, span, a, li {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
-/* ==========================================
-   MOBILE LARGE (576px - 767px)
-   ========================================== */
-@media (max-width: 575px) {
-    nav {
-        padding: 10px 15px;
-    }
-    
-    .logo {
-        font-size: 22px;
-    }
-    
-    .nav-right {
-        gap: 10px;
-    }
-    
-    .icon {
-        font-size: 20px;
-    }
-    
-    button,
-    .hero-btn,
-    .cta-btn {
-        padding: 10px 16px;
-        font-size: 13px;
-    }
-    
-    .hero-container {
-        padding-top: 60px;
-        padding-bottom: 20px;
-    }
-    
-    .hero-img img {
-        width: 200px;
-        height: 200px;
-        margin-top: 15px;
-        margin-bottom: 20px;
-    }
-    
-    .cursor {
-        width: 16em;
-        font-size: 20px;
-        border-right-width: 2px;
-    }
-    
-    .hero-text p {
-        font-size: 15px;
-        max-width: 95%;
-        padding: 0 15px;
-    }
-    
-    .moving-text span {
-        font-size: 20px;
-        margin-right: 35px;
-    }
-    
-    .cards {
-        padding: 25px 15px;
-    }
-    
-    .card {
-        margin-bottom: 25px;
-        padding: 12px;
-        border-radius: 10px;
-    }
-    
-    .card img {
-        padding: 15px 8px;
-        border-radius: 6px;
-    }
-    
-    .content {
-        padding: 12px;
-    }
-    
-    .content h2 {
-        font-size: 22px;
-        margin-bottom: 10px;
-    }
-    
-    .content p {
-        font-size: 14px;
-        margin-bottom: 10px;
-        line-height: 1.5;
-    }
-    
-    .about-card {
-        padding: 25px 15px;
-        margin: 25px 8px;
-        border-radius: 16px;
-    }
-    
-    .main-heading {
-        font-size: 32px;
-        margin-bottom: 18px;
-    }
-    
-    .about-description {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-    
-    .contact-button {
-        padding: 12px 28px;
-        font-size: 14px;
-    }
-    
-    .timeline-section {
-        padding: 25px 15px;
-    }
-    
-    .timeline-item {
-        padding: 25px 12px 25px 45px !important;
-    }
-    
-    .timeline-section .containers::before {
-        left: 12px;
-    }
-    
-    .timeline-item::before {
-        left: 6px !important;
-        width: 10px;
-        height: 10px;
-    }
-    
-    .timeline-content {
-        padding: 15px;
-        border-radius: 12px;
-    }
-    
-    .timeline-item h3 {
-        font-size: 18px;
-        margin-bottom: 12px;
-    }
-    
-    .timeline-content p {
-        font-size: 14px;
-        margin-bottom: 8px;
-    }
-    
-    .timeline-item .timeline-img {
-        left: -58px !important;
-        width: 45px;
-        height: 45px;
-        top: 18px;
-        border-width: 3px;
-    }
-    
-    .moving-text1 span {
-        font-size: 24px;
-        margin-right: 50px;
-    }
-    
-    .cta {
-        min-height: 28vh;
-        padding: 25px 12px;
-    }
-    
-    .cta-box {
-        max-width: 95%;
-    }
-    
-    .cta-box h1 {
-        font-size: 28px;
-        margin-bottom: 10px;
-    }
-    
-    .cta-box p {
-        font-size: 15px;
-        margin-bottom: 25px;
-        line-height: 1.5;
-    }
-    
-    .footer-heading {
-        font-size: 1.8rem;
-    }
-    
-    .footer-sub-heading {
-        font-size: 15px;
-    }
-    
-    .footer-items ul li a {
-        font-size: 16px;
-    }
-    
-    .footer-icons i {
-        font-size: 22px;
-    }
-    
-    .footer-contact p {
-        font-size: 18px;
-    }
-    
-    .footer-newsletter h3 {
-        font-size: 18px;
-    }
+/* Fix hero text specifically */
+.hero-text,
+.hero-text h1,
+.hero-text .cursor {
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-align: center !important;
 }
 
-/* ==========================================
-   MOBILE MEDIUM (480px - 575px)
-   ========================================== */
-@media (max-width: 479px) {
-    nav {
-        padding: 10px 12px;
-    }
-    
-    .logo {
-        font-size: 20px;
-    }
-    
-    .icon {
-        font-size: 18px;
-    }
-    
-    .hamburger {
-        width: 22px;
-        height: 18px;
-    }
-    
-    button,
-    .hero-btn,
-    .cta-btn {
-        padding: 8px 14px;
-        font-size: 12px;
-    }
-    
-    .hero-container {
-        padding-top: 55px;
-    }
-    
-    .hero-img img {
-        width: 180px;
-        height: 180px;
-        margin-top: 12px;
-        margin-bottom: 18px;
-    }
-    
-    .cursor {
-        width: 14em;
-        font-size: 18px;
-    }
-    
-    .hero-text p {
-        font-size: 14px;
-        max-width: 100%;
-        padding: 0 12px;
-    }
-    
-    .moving-text-container {
-        padding: 8px 0;
-    }
-    
-    .moving-text span {
-        font-size: 18px;
-        margin-right: 30px;
-    }
-    
-    .cards {
-        padding: 20px 12px;
-    }
-    
-    .card {
-        margin-bottom: 20px;
-        padding: 10px;
-    }
-    
-    .card img {
-        padding: 12px 6px;
-    }
-    
-    .content {
-        padding: 10px;
-    }
-    
-    .content h2 {
-        font-size: 20px;
-    }
-    
-    .content p {
-        font-size: 13px;
-    }
-    
-    .about-card {
-        padding: 20px 12px;
-        margin: 20px 5px;
-    }
-    
-    .main-heading {
-        font-size: 28px;
-        margin-bottom: 15px;
-    }
-    
-    .about-description {
-        font-size: 14px;
-    }
-    
-    .contact-button {
-        padding: 10px 24px;
-        font-size: 13px;
-    }
-    
-    .timeline-section {
-        padding: 20px 12px;
-    }
-    
-    .timeline-item {
-        padding: 20px 10px 20px 40px !important;
-    }
-    
-    .timeline-section .containers::before {
-        left: 10px;
-        width: 2px;
-    }
-    
-    .timeline-item::before {
-        left: 5px !important;
-        width: 8px;
-        height: 8px;
-        top: 30px;
-    }
-    
-    .timeline-content {
-        padding: 12px;
-    }
-    
-    .timeline-item h3 {
-        font-size: 17px;
-        margin-bottom: 10px;
-    }
-    
-    .timeline-content p {
-        font-size: 13px;
-        margin-bottom: 8px;
-    }
-    
-    .timeline-item .timeline-img {
-        left: -52px !important;
-        width: 40px;
-        height: 40px;
-        top: 15px;
-        border-width: 3px;
-    }
-    
-    .moving-text-container1 {
-        padding: 8px 0;
-    }
-    
-    .moving-text1 span {
-        font-size: 20px;
-        margin-right: 40px;
-    }
-    
-    .cta {
-        min-height: 25vh;
-        padding: 20px 10px;
-    }
-    
-    .cta-box h1 {
-        font-size: 24px;
-    }
-    
-    .cta-box p {
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-    
-    .footer-container {
-        padding: 1.2rem 0.8rem;
-    }
-    
-    .footer-heading {
-        font-size: 1.5rem;
-    }
-    
-    .footer-sub-heading {
-        font-size: 14px;
-    }
-    
-    .footer-items ul li a {
-        font-size: 15px;
-    }
-    
-    .footer-icons i {
-        font-size: 20px;
-    }
-    
-    .footer-contact p {
-        font-size: 16px;
-    }
-    
-    .footer-contact p span,
-    .footer-contact i {
-        font-size: 15px;
-    }
-    
-    .footer-newsletter h3 {
-        font-size: 17px;
-    }
-    
-    .footer-newsletter p {
-        font-size: 14px;
-    }
-    
-    .newsletter-form .form-input {
-        font-size: 13px;
-        padding: 0.4rem 0.6rem;
-    }
-    
-    .bottom-footer {
-        font-size: 12px;
-    }
+.cursor {
+  white-space: nowrap !important;
+  line-height: 1.4 !important;
+  display: inline-block !important;
+  position: relative !important;
+  border-right: 2px solid rgba(255, 255, 255, .75) !important;
 }
 
-/* ==========================================
-   MOBILE SMALL (320px - 479px)
-   ========================================== */
-@media (max-width: 374px) {
-    .logo {
-        font-size: 18px;
-    }
-    
-    .hero-img img {
-        width: 160px;
-        height: 160px;
-    }
-    
-    .cursor {
-        width: 12em;
-        font-size: 16px;
-    }
-    
-    .hero-text p {
-        font-size: 13px;
-    }
-    
-    .moving-text span {
-        font-size: 16px;
-        margin-right: 25px;
-    }
-    
-    .content h2 {
-        font-size: 18px;
-    }
-    
-    .content p {
-        font-size: 12px;
-    }
-    
-    .main-heading {
-        font-size: 24px;
-    }
-    
-    .about-description {
-        font-size: 13px;
-    }
-    
-    .timeline-item h3 {
-        font-size: 16px;
-    }
-    
-    .timeline-content p {
-        font-size: 12px;
-    }
-    
-    .moving-text1 span {
-        font-size: 18px;
-        margin-right: 35px;
-    }
-    
-    .cta-box h1 {
-        font-size: 22px;
-    }
-    
-    .cta-box p {
-        font-size: 13px;
-    }
-    
-    .footer-heading {
-        font-size: 1.3rem;
-    }
+/* Ensure typewriter animation works on all screens */
+.typewriter-animation {
+  animation: typewriter 5s steps(40) 2s infinite normal both,
+             blinkingCursor 500ms steps(40) infinite normal !important;
 }
 
-/* ==========================================
-   UTILITY OVERRIDES
-   ========================================== */
-@media (max-width: 991px) {
-    /* Ensure images are responsive */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    /* Fix animation states on smaller screens */
-    .hero-img.show {
-        transform: translateY(0);
-    }
-    
-    .image-container.show-image img {
-        transform: translateX(0);
-    }
+/* CARD BLUR EFFECT - GUARANTEED WORKING VERSION */
+.card {
+  position: sticky !important;
+  transition: transform 0.3s ease, filter 0.3s ease, background 0.3s ease !important;
 }
 
-/* ==========================================
-   PREVENT HORIZONTAL SCROLL
-   ========================================== */
-@media (max-width: 767px) {
-    body {
-        overflow-x: hidden;
-    }
-    
-    * {
-        max-width: 100%;
-    }
-    
-    .moving-text-container,
-    .moving-text-container1 {
-        overflow: hidden;
-    }
+.card.blur {
+  transform: scale(0.95) !important;
+  filter: blur(3px) !important;
+  background: var(--secondary-bg) !important;
 }
 
-/* ==========================================
-   TOUCH TARGET IMPROVEMENTS
-   ========================================== */
-@media (max-width: 767px) {
-    button,
-    .hero-btn,
-    .cta-btn,
-    .contact-button,
-    .icon,
-    .hamburger {
-        min-height: 44px;
-        min-width: 44px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .nav-links li a {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-    }
-    
-    .footer-icons i {
-        padding: 8px;
-    }
+/* Ensure cards maintain sticky position for blur to work */
+@media screen and (max-width: 998px) {
+  .card {
+    position: sticky !important;
+    top: 5px !important;
+  }
+  
+  .card.blur {
+    transform: scale(0.92) !important;
+  }
 }
 
-/* ==========================================
-   FIX NAVBAR OVERLAP ON SCROLL
-   ========================================== */
-@media (max-width: 767px) {
-    .hero-container {
-        scroll-margin-top: 60px;
-    }
-    
-    section {
-        scroll-margin-top: 60px;
-    }
+@media screen and (max-width: 768px) {
+  .card {
+    position: sticky !important;
+    top: 3px !important;
+  }
+  
+  .card.blur {
+    transform: scale(0.90) !important;
+  }
 }
 
-/* ==========================================
-   ANIMATION ADJUSTMENTS FOR MOBILE
-   ========================================== */
-@media (max-width: 767px) {
-    /* Reduce animation complexity on mobile for better performance */
-    .timeline-item.right,
-    .timeline-item.left-box {
-        transform: translateY(40px);
-    }
-    
-    .timeline-item.show {
-        transform: translateY(0);
-    }
-    
-    /* Simplify typewriter on very small screens */
-    @media (max-width: 479px) {
-        .cursor {
-            border-right-width: 1px;
-        }
-    }
+/* Force blur effect visibility on all screen sizes */
+.cards {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.cards .card:not(:last-child) {
+  position: sticky !important;
+}
+
+/* Make sure mobile doesn't break sticky positioning */
+@media screen and (max-width: 768px) {
+  .cards {
+    position: relative !important;
+  }
+  
+  .card {
+    position: sticky !important;
+    will-change: transform, filter !important;
+  }
 }
