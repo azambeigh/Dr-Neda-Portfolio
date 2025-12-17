@@ -28,14 +28,21 @@ if (hamburger && menu) {
 // ============================================
 // HERO IMAGE ANIMATION
 // ============================================
-const heroImg = document.querySelector('.hero-img');
-if (heroImg) {
+const heroContainer = document.querySelector('.hero-container');
+if (heroContainer) {
   window.addEventListener('load', () => {
-    setTimeout(() => {
-      heroImg.classList.add('show');
-    }, 100);
+    heroContainer.classList.add('show'); // Make sure you have .show in CSS
   });
 }
+
+
+const heroText = document.querySelector('.hero-text');
+if (heroText) {
+  window.addEventListener('load', () => {
+    heroText.classList.add('show-text');
+  });
+}
+
 
 // ============================================
 // CARD BLUR EFFECT - GUARANTEED WORKING
@@ -97,8 +104,10 @@ if (imageContainer) {
   const imageObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('show-image');
-      }
+  entry.target.classList.add('show-image');
+} else {
+  entry.target.classList.remove('show-image'); // allows re-trigger
+}
     });
   }, { threshold: 0.2 });
   
@@ -113,8 +122,10 @@ if (timelineItems.length > 0) {
   const timelineObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
+  entry.target.classList.add('show');
+} else {
+  entry.target.classList.remove('show'); // allows re-trigger
+}
     });
   }, { threshold: 0.1 });
   
