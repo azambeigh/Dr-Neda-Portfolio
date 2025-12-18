@@ -21,7 +21,7 @@ h3 {
 
 body {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+
 }
 
 button,
@@ -29,7 +29,7 @@ button,
 .cta-btn {
   position: relative;
   overflow: hidden;
-  background:var(--text-color);
+  background: var(--text-color);
   color: white;
   border-radius: 30px;
   cursor: pointer;
@@ -111,7 +111,7 @@ button:hover,
 .logo {
   font-size: 34px;
   font-weight: 600;
-  
+
 }
 
 .nav-links {
@@ -194,6 +194,7 @@ button:hover,
   background: url(./assests/bg-hero-img.jpg) no-repeat center center/cover;
   padding-top: 280px;
   color: white;
+  overflow-x: hidden;
 }
 
 .hero-container::before {
@@ -240,27 +241,46 @@ button:hover,
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
-  transform: translateY(-50%);
+ 
   color: #E8DAD6;
 }
 
 .typewriter-animation {
   animation:
-    typewriter 28s steps(40, end) infinite,
+    typewriter 16s steps(40, end) infinite,
     blinkingCursor 700ms steps(40, end) infinite;
 }
 
 @keyframes typewriter {
-  0% { width: 0; }
-  40% { width: 100%; }
-  50% { width: 100%; }
-  90% { width: 0; }
-  100% { width: 0; }
+  0% {
+    width: 0;
+  }
+
+  40% {
+    width: 56%;
+  }
+
+  50% {
+    width: 56%;
+  }
+
+  90% {
+    width: 0;
+  }
+
+  100% {
+    width: 0;
+  }
 }
 
 @keyframes blinkingCursor {
-  from { border-right-color: rgba(15, 11, 11, 0.75); }
-  to { border-right-color: transparent; }
+  from {
+    border-right-color: rgba(15, 11, 11, 0.75);
+  }
+
+  to {
+    border-right-color: transparent;
+  }
 }
 
 .hero-text p {
@@ -338,8 +358,13 @@ button:hover,
 }
 
 @keyframes scrollText {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* ========================================
@@ -415,6 +440,7 @@ button:hover,
   padding: 50px;
   margin: 50px 10px;
   overflow: hidden;
+  overflow-x: hidden;
 }
 
 .content-wrapper {
@@ -491,6 +517,7 @@ button:hover,
 .timeline-section {
   padding: 40px 32px;
   position: relative;
+  overflow-x: hidden;
 }
 
 .container h2 {
@@ -816,23 +843,23 @@ i {
   .nav {
     padding: 18px 40px;
   }
-  
+
   .nav.scrolled {
     padding: 10px 40px;
   }
-  
+
   .about-card {
     padding: 40px 30px;
   }
-  
+
   .content-wrapper {
     gap: 30px;
   }
-  
+
   .image-container {
     margin-left: 30px;
   }
-  
+
   .footer-content {
     gap: 1.5rem;
   }
@@ -840,19 +867,20 @@ i {
 
 /* Tablets portrait mode (≤ 768px) */
 @media screen and (max-width: 768px) {
+
   /* Navbar */
   .nav {
     padding: 15px 20px;
   }
-  
+
   .nav.scrolled {
     padding: 10px 20px;
   }
-  
+
   .logo {
     font-size: 26px;
   }
-  
+
   .nav-links {
     position: absolute;
     top: 65px;
@@ -885,117 +913,117 @@ i {
     gap: 10px;
     display: none;
   }
-  
+
   /* Hero Section */
   .hero-container {
     padding-top: 180px;
     height: 90vh;
     min-height: 500px;
   }
-  
+
   .cursor {
     font-size: 24px;
     max-width: 20em;
   }
-  
+
   .hero-text p {
     font-size: 16px;
     padding: 0 15px;
   }
-  
+
   .hero-buttons {
     gap: 10px;
     padding: 0 15px;
   }
-  
+
   .hero-btn,
   .hero-btn1 {
     padding: 10px 18px;
     font-size: 14px;
   }
-  
+
   /* Moving Text */
   .moving-text span {
     font-size: 20px;
     margin-right: 30px;
   }
-  
+
   /* Cards Section */
   .cards {
     padding: 30px 15px;
   }
-  
+
   .card {
     flex-direction: column;
     gap: 15px;
     padding: 15px;
     margin-bottom: 30px;
   }
-  
+
   .card img {
     width: 100%;
     padding: 20px 10px;
   }
-  
+
   .content {
     width: 100%;
     padding: 10px;
   }
-  
+
   .content h2 {
     font-size: 22px;
   }
-  
+
   .content p {
     font-size: 15px;
   }
-  
+
   /* About Section */
   .about-card {
     padding: 30px 20px;
     margin: 30px 10px;
   }
-  
+
   .content-wrapper {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  
+
   .text-content h1 {
     font-size: 28px;
   }
-  
+
   .text-content p {
     font-size: 15px;
   }
-  
+
   .image-container {
     margin-left: 0;
   }
-  
+
   .contact-button {
     padding: 14px 30px;
     font-size: 14px;
   }
-  
+
   /* Timeline */
   .timeline-section {
     padding: 30px 20px;
   }
-  
+
   .timeline-section .containers {
     width: 100%;
   }
-  
+
   .timeline-section .containers::before {
     left: 30px;
   }
-  
+
   .timeline-item {
     width: 100%;
     padding: 30px 0 30px 60px;
   }
-  
+
   .timeline-item.right,
   .timeline-item.left-box {
     margin-left: 0;
@@ -1003,73 +1031,72 @@ i {
     padding-right: 0;
     text-align: left;
   }
-  
+
   .timeline-item::before {
     left: 23px !important;
     right: auto !important;
   }
-  
-  .timeline-img {
-    width: 50px;
-    height: 50px;
+
+   .timeline-item .timeline-img {
+    display: none !important;
   }
-  
+
   .timeline-item.right .timeline-img.left-img,
   .timeline-item.left-box .timeline-img.right-img {
     left: 5px !important;
     right: auto !important;
     top: 20px;
   }
-  
+
   .timeline-item h3 {
     font-size: 20px;
   }
-  
+
   .timeline-content p {
     font-size: 15px;
   }
-  
+
   /* CTA */
   .cta {
     padding: 40px 16px;
   }
-  
+
   .cta-box {
     padding: 32px 20px;
   }
-  
+
   .cta-box h2 {
     font-size: 24px;
   }
-  
+
   .cta-box p {
     max-width: 100%;
     font-size: 15px;
   }
-  
+
   /* Footer */
   .container h2 {
     font-size: 2rem;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
     padding-inline: 1rem;
     gap: 2rem;
   }
-  
+
   .footer-items ul {
     margin-left: 0;
   }
-  
+
   .newsletter-form {
     flex-direction: column;
   }
-  
+
   .newsletter-form button {
     width: 100%;
   }
-  
+
   .bottom-container {
     flex-direction: column;
     text-align: center;
@@ -1079,141 +1106,142 @@ i {
 
 /* Mobile devices (≤ 480px) */
 @media screen and (max-width: 480px) {
+
   /* Navbar */
   .logo {
     font-size: 22px;
   }
-  
+
   .nav {
     padding: 12px 15px;
   }
-  
+
   .nav.scrolled {
     padding: 8px 15px;
   }
-  
+
   /* Hero */
   .hero-container {
     width: 100%;
     max-height: 50vh;
     padding-top: 150px;
-    
+
   }
-  
+
   .cursor {
     font-size: 25px;
   }
-  
+
   .hero-text p {
     display: flex;
     align-items: center;
     font-size: 14px;
   }
-  
+
   .hero-btn,
   .hero-btn1 {
     padding: 10px 16px;
     font-size: 13px;
   }
-  
+
   /* Moving Text */
   .moving-text span {
     font-size: 18px;
     margin-right: 20px;
   }
-  
+
   /* Cards */
   .cards {
     padding: 20px 10px;
   }
-  
+
   .card {
     padding: 12px;
   }
-  
+
   .content h2 {
     font-size: 20px;
   }
-  
+
   .content p {
     font-size: 14px;
   }
-  
+
   /* About */
   .about-card {
     padding: 20px 15px;
   }
-  
+
   .text-content h1 {
     font-size: 24px;
   }
-  
+
   .text-content p {
     font-size: 14px;
   }
-  
+
   .contact-button {
     padding: 12px 24px;
     font-size: 13px;
   }
-  
+
   /* Timeline */
   .timeline-section {
     padding: 20px 15px;
   }
-  
+
   .timeline-item {
     padding: 20px 0 20px 50px;
   }
-  
+
   .timeline-item.right,
   .timeline-item.left-box {
     padding-left: 50px;
   }
-  
+
   .timeline-img {
     width: 40px;
     height: 40px;
   }
-  
+
   .timeline-item h3 {
     font-size: 18px;
   }
-  
+
   .timeline-content {
     padding: 15px;
   }
-  
+
   .timeline-content p {
     font-size: 14px;
   }
-  
+
   /* CTA */
   .cta-box h2 {
     font-size: 20px;
   }
-  
+
   .cta-box p {
     font-size: 14px;
   }
-  
+
   /* Footer */
   .container h2 {
     font-size: 1.5rem;
   }
-  
+
   .footer-contact p {
     font-size: 16px;
   }
-  
+
   .footer-contact p span {
     font-size: 14px;
   }
-  
+
   .footer-newsletter h3 {
     font-size: 18px;
   }
-  
+
   .bottom-footer {
     font-size: 12px;
   }
@@ -1224,12 +1252,51 @@ i {
   .cursor {
     font-size: 18px;
   }
-  
+
   .hero-text p {
     font-size: 13px;
   }
-  
+
   .content h2 {
     font-size: 18px;
+  }
+
+  .card {
+    flex-direction: column !important;
+    /* stack image and content vertically */
+    padding: 10px;
+    /* reduce padding */
+    gap: 10px;
+    /* smaller gap between image and content */
+  }
+
+  .card img {
+    width: 100%;
+    /* image fills card width */
+    padding: 0;
+    /* remove extra padding */
+  }
+
+  .content {
+    width: 100%;
+    /* content fills available width */
+    padding: 5px;
+    /* reduce content padding */
+  }
+
+  .content h2 {
+    font-size: 16px;
+    /* smaller heading */
+  }
+
+  .content p {
+    font-size: 13px;
+    /* smaller text */
+    line-height: 1.4;
+    /* reduce line height */
+  }
+
+  .timeline-item .timeline-img {
+    display: none !important;
   }
 }
